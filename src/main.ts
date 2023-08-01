@@ -4,7 +4,7 @@ const searchBar = <HTMLInputElement>document.getElementById("search-bar");
 const searchBtn = <HTMLInputElement>document.querySelector(".search-btn");
 const cityNameText = <HTMLInputElement>document.querySelector(".city-name");
 const degree = <HTMLInputElement>document.querySelector(".degree");
-const icoImg = document.getElementById("img");
+const icoImg = document.getElementById("image");
 const feelsLike = <HTMLInputElement>document.querySelector(".feels-like");
 const weatherCondition = <HTMLInputElement>(
   document.querySelector(".weather-condition")
@@ -29,7 +29,7 @@ let getWeather = async (cityName: string) => {
   const w = await weather.json();
   cityNameText.innerText = cityName.toUpperCase();
   icoImg?.setAttribute("src", `${w.current.condition.icon}`);
-  degree.innerText = w.current.temp_c;
-  feelsLike.innerText = w.current.feelslike_c;
+  degree.innerText = "Sıcaklık: " + w.current.temp_c + "°C";
+  feelsLike.innerText = "Hissedilen Sıcaklık: " + w.current.feelslike_c + "°C";
   weatherCondition.innerText = w.current.condition.text;
 };
